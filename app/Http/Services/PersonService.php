@@ -9,6 +9,13 @@ use Illuminate\Http\Response;
 
 class PersonService
 {
+    protected $contactService;
+
+    public function __construct(ContactService $contactService)
+    {
+        $this->contactService = $contactService;
+    }
+
     public function get($filter)
     {
         $person = Person::filter($filter)->paginate();
@@ -49,6 +56,8 @@ class PersonService
 
     public static function delete($person)
     {
+        $person->contacts()->delete();
+
         Person::destroy($person);
 
         return success_response(

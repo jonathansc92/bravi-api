@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PersonResource extends JsonResource
+class ContactResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,8 +16,10 @@ class PersonResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'contacts' => ContactResource::collection($this->contacts),
+            'phone' => $this->phone,
+            'whatsapp' => $this->whatsapp,
+            'email' => $this->email,
+            'person_id' => $this->person_id,
         ];
     }
 }
