@@ -4,7 +4,7 @@ services:
     build:
         context: ./docker
         dockerfile: Dockerfile
-    container_name: api
+    container_name: bravi-api
     volumes:
       - ./:/var/www/html
     environment:
@@ -34,4 +34,4 @@ volumes:
   sql-data-db:
 networks:
   default:
-    name: api
+    name: bravi
