@@ -4,7 +4,7 @@ namespace App\Http\Services;
 
 use App\Http\Resources\PersonResource;
 use App\Models\Person;
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use App\Http\Resources\ResourceCollection;
 use Illuminate\Http\Response;
 
 class PersonService
@@ -18,7 +18,7 @@ class PersonService
 
     public function get($filter)
     {
-        $person = Person::filter($filter)->paginate();
+        $person = Person::filter($filter)->with('contacts')->paginate();
 
         return success_response(
             data: new ResourceCollection($person),
