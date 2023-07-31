@@ -6,3 +6,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('persons', PersonController::class);
 Route::resource('contacts', ContactController::class);
+Route::post('check-balanced', 'App\Http\Controllers\BalancedController@checkBalanced');
