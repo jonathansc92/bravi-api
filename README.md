@@ -1,77 +1,49 @@
-#Backend Demandas Judiciais
+# Teste Pagamento
 
-# Como buildar o projeto
+Este projeto é destinado a pôr em exercício aprendizados e conhecimento técnico simulando um cadastro de pessoas.
 
-Este projeto está utilizando [docker](https://www.docker.com/) e [sail](https://laravel.com/docs/10.x/sail)
- para realizar o build, em um linux ou wsl siga os passos abaixo:
+## Breifing
+### Objetivo
+O principal objetivo deste projeto é criar um API em Laravel, que possibilita.
 
-Na raiz do projeto, baixar as dependências do sail com o **composer install** ou utilizando o commando abaixo:
-```bash 
-docker run --rm 
--u "$(id -u):$(id -g)" 
--v "$(pwd):/var/www/html" 
--w /var/www/html 
-laravelsail/php82-composer:latest 
-composer install --ignore-platform-reqs
-```
+- Cadastro de pessoas,
+- Cadastro de contatos.
 
-Crie uma cópia do env com base no exemplo
-```bash
-cp .env.example .env
-```
+# Padrões adotados
+Para criação da API foi adotado alguns padrões e conceitos para melhor legibilidade e manutenção do projeto, como:
+SOLID
+Design Pattern (Requests, Resources, Services, Filters)
 
-Executar o comando para criar a imagem (pode demorar um pouco):
-```bash
-./vendor/bin/sail up -d
-```
+# Tecnologias
+- API desenvolvida em Laravel
+- Banco de Dados em MYSQL
+- PHPUnit para testes
 
-Abra o container
-```bash
-docker compose exec siga-demandas bash
-```
+## Uso
+Para rodar o projeto é necessário ter o **docker** configurador e um terminal **bash**. Após o clonar o repositório, deve ser acessada a pasta raiz do projeto e rodado o comando: `docker compose up -d` no terminal. Feito isso, só aguardar o projeto rodar e executar todos os scripts necessários. Caso desejar dados nas tabelas de banco de dados pode rodar o seeder com o comando `php artisan db:seed`. Para rodar os testes de integração, acessar o container e executar o comando `php artisan test`.
 
-Dentro do container executar os comandos:
-```bash
-php artisan key:generate
-```
-```bash
-php artisan migrate
-```
-```bash
-php artisan db:seed
-```
+**TESTE DE Suportes balanceados:**
+Suporte Balanceados: **[POST]** `/api/check-balanced/`, payload: `{ "sequence": "{sequence}" }`.
 
-# Como fazer o build do projeto no Windows
+**PERSONS:**
 
-Necessário estar instalado:
+Lista de pessoas: **[GET]** `/api/persons`.
 
-1. Docker Desktop
-2. Composer
+Mostrar uma pessoa: **[GET]** `/api/persons/1`.
 
-Acesse o diretório raiz e execute os seguintes comandos:
+Salvar uma pessoa: **[POST]** `/api/persons`, payload: `{ "name": "{name}" }`.
 
-```bash
-composer install
-```
+Alterar uma pessoa: **[PUT]** `/api/persons/1`, payload: `{ "name": "{name}" }`.
 
-Após as instalações serem concluídas, no diretório raiz copie o .env.example, cole e renomeie para .env
+Excluir uma pessoa: **[DELETE]** `/api/persons/1`.
 
-Após isso, execute no diretório raiz o comando:
+**CONTACTS:**
 
-```bash
-docker compose up -d
-```
+Salvar um contato: **[POST]** `/api/contacts`, payload: `{ "phone": "{phone}", "whatsapp": "{whatsapp}", "email": "{email}", "person_id": {1} }`.
 
-E então, dentro do contâiner, execute:
+Alterar uma pessoa: **[PUT]** `/api/contacts/1`, , payload: `{ "phone": "{phone}", "whatsapp": "{whatsapp}", "email": "{email}", "person_id": {1} }`.
 
-```bash
-su
-php artisan key:generate
-```
-```bash
-php artisan migrate
-```
-```bash
-php artisan db:seed
-```
+Excluir uma pessoa: **[DELETE]** `/api/contacts/1`.
 
+Por fim, é isso.
+Qualquer dúvida, ou sugestão. Enviar e-mail para: jonathansc92@gmail.com
