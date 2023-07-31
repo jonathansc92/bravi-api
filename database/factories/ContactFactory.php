@@ -18,8 +18,8 @@ class ContactFactory extends Factory
     public function definition(): array
     {
         return [
-            'phone' => fake()->numerify('###########'),
-            'whatsapp' => fake()->numerify('###########'),
+            'phone' => fake()->numerify('(##) #########'),
+            'whatsapp' => fake()->numerify('(##) #########'),
             'email' => fake()->email(),
             'person_id' => fake()->randomElement(Person::pluck('id')),
         ];
