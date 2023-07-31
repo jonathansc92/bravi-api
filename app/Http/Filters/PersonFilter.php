@@ -24,7 +24,7 @@ class PersonFilter extends Filter
         );
     }
 
-    public function limit(int $value = 15): Builder
+    public function limit(int $value = 50): Builder
     {
         $this->builder->getModel()->setPerPage($value);
 

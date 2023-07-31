@@ -49,7 +49,7 @@ class ContactService
 
     public static function delete($contact)
     {
-        Contact::destroy($contact);
+        Contact::destroy($contact->id);
 
         return success_response(
             message: __('messages.deleted', ['model' => __('models/contact.singular')]),

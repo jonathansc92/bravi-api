@@ -58,7 +58,7 @@ class PersonService
     {
         $person->contacts()->delete();
 
-        Person::destroy($person);
+        Person::destroy($person->id);
 
         return success_response(
             message: __('messages.deleted', ['model' => __('models/person.singular')]),
