@@ -1,4 +1,4 @@
-# Teste Pagamento
+# Teste
 
 Este projeto é destinado a pôr em exercício aprendizados e conhecimento técnico simulando um cadastro de pessoas.
 
