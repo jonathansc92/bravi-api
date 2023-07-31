@@ -5,7 +5,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Response;
 
-if (!function_exists('success_response')) {
+if (! function_exists('success_response')) {
     function success_response(array|JsonResource $data = null, string $message = '', int $httpStatus = Response::HTTP_OK)
     {
         $response = [
@@ -31,7 +31,7 @@ if (!function_exists('success_response')) {
     }
 }
 
-if (!function_exists('error_response')) {
+if (! function_exists('error_response')) {
     function error_response(string $message = '', int $httpStatus = Response::HTTP_NOT_FOUND, array $errors = null)
     {
         $response = [
@@ -39,7 +39,7 @@ if (!function_exists('error_response')) {
             'message' => $message,
         ];
 
-        if (!empty($errors)) {
+        if (! empty($errors)) {
             $response['errors'] = $errors;
         }
 

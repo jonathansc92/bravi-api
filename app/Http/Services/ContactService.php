@@ -18,6 +18,7 @@ class ContactService
             message: __('messages.retrieved', ['model' => __('models/contact.plural')]),
         );
     }
+
     public static function create($request)
     {
         $contact = Contact::create($request->validated());

@@ -6,7 +6,7 @@ class BalancedService
 {
     private function pairs()
     {
-        return ["{" => "}", "[" => "]", "(" => ")"];
+        return ['{' => '}', '[' => ']', '(' => ')'];
     }
 
     public function checkStack(string $stack)
@@ -17,9 +17,9 @@ class BalancedService
         }
 
         $pairs = $this->pairs();
-        $stackToArray  = str_split($stack);
+        $stackToArray = str_split($stack);
 
-        $open  = [];
+        $open = [];
 
         foreach ($stackToArray as $char) {
             if ($char == '(' || $char == '[' || $char == '{') {

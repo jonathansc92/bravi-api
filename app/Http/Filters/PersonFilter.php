@@ -14,7 +14,7 @@ class PersonFilter extends Filter
 
     public function sort(array $value = []): Builder
     {
-        if (isset($value['by']) && !Schema::hasColumn('persons', $value['by'])) {
+        if (isset($value['by']) && ! Schema::hasColumn('persons', $value['by'])) {
             return $this->builder;
         }
 

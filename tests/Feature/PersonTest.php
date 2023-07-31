@@ -30,7 +30,7 @@ class PersonTest extends TestCase
     public function test_show(): void
     {
         $person = Person::factory()->create();
-        $response = $this->get($this->url . $person->id);
+        $response = $this->get($this->url.$person->id);
         $response->assertStatus(200);
     }
 
@@ -38,7 +38,7 @@ class PersonTest extends TestCase
     {
         $person = Person::factory()->create();
 
-        $response = $this->put($this->url . $person->id, Person::factory()->make()->toArray());
+        $response = $this->put($this->url.$person->id, Person::factory()->make()->toArray());
         $response->assertStatus(200);
     }
 
@@ -46,7 +46,7 @@ class PersonTest extends TestCase
     {
         $person = Person::factory()->create();
 
-        $response = $this->delete($this->url . $person->id);
+        $response = $this->delete($this->url.$person->id);
         $response->assertStatus(200);
     }
 }

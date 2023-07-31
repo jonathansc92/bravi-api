@@ -3,8 +3,8 @@
 namespace App\Http\Services;
 
 use App\Http\Resources\PersonResource;
-use App\Models\Person;
 use App\Http\Resources\ResourceCollection;
+use App\Models\Person;
 use Illuminate\Http\Response;
 
 class PersonService
@@ -25,6 +25,7 @@ class PersonService
             message: __('messages.retrieved', ['model' => __('models/person.plural')]),
         );
     }
+
     public static function create($request)
     {
         $person = Person::create($request->validated());

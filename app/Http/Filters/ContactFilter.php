@@ -9,22 +9,22 @@ class ContactFilter extends Filter
 {
     public function phone(string $value = null): Builder
     {
-        return $this->builder->where('phone', "LIKE", "%$value%");
+        return $this->builder->where('phone', 'LIKE', "%$value%");
     }
 
     public function whatsapp(string $value = null): Builder
     {
-        return $this->builder->where('whatsapp', "LIKE", "%$value%");
+        return $this->builder->where('whatsapp', 'LIKE', "%$value%");
     }
 
     public function email(string $value = null): Builder
     {
-        return $this->builder->where('email', "LIKE", "%$value%");
+        return $this->builder->where('email', 'LIKE', "%$value%");
     }
 
     public function sort(array $value = []): Builder
     {
-        if (isset($value['by']) && !Schema::hasColumn('persons', $value['by'])) {
+        if (isset($value['by']) && ! Schema::hasColumn('persons', $value['by'])) {
             return $this->builder;
         }
 
